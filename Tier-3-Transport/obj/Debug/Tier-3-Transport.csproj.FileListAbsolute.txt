@@ -1,0 +1,12 @@
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\Tier-3-Transport.exe.config
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\Tier-3-Transport.exe
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\Tier-3-Transport.pdb
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\GAMS.net4.dll
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\bin\Debug\DataDefinitions.pdb
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier-3-Transport.csprojResolveAssemblyReference.cache
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier_3_Transport.BotUI.resources
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier_3_Transport.Properties.Resources.resources
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier-3-Transport.csproj.GenerateResource.Cache
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier-3-Transport.exe
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-Transport\obj\Debug\Tier-3-Transport.pdb

@@ -1,0 +1,5 @@
+09:29:52 : Bot Started
+09:30:09 : Task Received : Cutstock11. Probing Stopped.
+09:30:10 : Could not find a valid GAMS system directory automatically. Either specify a valid system directory by passing it to the GAMSWorkspace constructor or run findthisgams.exe in the GAMS system directory you want to use.
+09:30:11 : Processing Complete
+09:30:20 : Bot Stopped

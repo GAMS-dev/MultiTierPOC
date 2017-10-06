@@ -1,0 +1,8 @@
+D:\Live\Projects\ETC\CutStock\DataDefinitions\bin\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\CutStock\DataDefinitions\bin\Debug\DataDefinitions.pdb
+D:\Live\Projects\ETC\CutStock\DataDefinitions\obj\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\CutStock\DataDefinitions\obj\Debug\DataDefinitions.pdb
+D:\Live\Projects\ETC\Gams-MuliTierPOC\DataDefinitions\bin\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\Gams-MuliTierPOC\DataDefinitions\bin\Debug\DataDefinitions.pdb
+D:\Live\Projects\ETC\Gams-MuliTierPOC\DataDefinitions\obj\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\Gams-MuliTierPOC\DataDefinitions\obj\Debug\DataDefinitions.pdb

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:53361/TaskQueue.asmx?wsdl" docRef="http://localhost:53361/TaskQueue.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:53361/TaskQueue.asmx" xmlns:q1="http://gams.com" binding="q1:TaskQueueSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:53361/TaskQueue.asmx" xmlns:q2="http://gams.com" binding="q2:TaskQueueSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

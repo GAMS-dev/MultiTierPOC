@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TaskManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LoginAccounts">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OptimizationTasks">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IssuedOn" Type="datetime" />
+          <Property Name="AllottedOn" Type="datetime" />
+          <Property Name="CompletedOn" Type="datetime" />
+          <Property Name="DoneBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="InputValues" Type="xml" />
+          <Property Name="OutputValues" Type="xml" />
+          <Property Name="ReferenceValues" Type="xml" />
+          <Property Name="Notes" Type="xml" />
+          <Property Name="Logs" Type="xml" />
+          <Property Name="TaskStaus" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OptimizationTasks_LoginAccounts">
+          <End Role="LoginAccounts" Type="Self.LoginAccounts" Multiplicity="1" />
+          <End Role="OptimizationTasks" Type="Self.OptimizationTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginAccounts">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="OptimizationTasks">
+              <PropertyRef Name="IssuedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaskManagerModelStoreContainer">
+          <EntitySet Name="LoginAccounts" EntityType="Self.LoginAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OptimizationTasks" EntityType="Self.OptimizationTasks" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OptimizationTasks_LoginAccounts" Association="Self.FK_OptimizationTasks_LoginAccounts">
+            <End Role="LoginAccounts" EntitySet="LoginAccounts" />
+            <End Role="OptimizationTasks" EntitySet="OptimizationTasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaskManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TaskManagerEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="LoginAccounts" EntityType="TaskManagerModel.LoginAccount" />
+          <EntitySet Name="OptimizationTasks" EntityType="TaskManagerModel.OptimizationTask" />
+          <AssociationSet Name="FK_OptimizationTasks_LoginAccounts" Association="TaskManagerModel.FK_OptimizationTasks_LoginAccounts">
+            <End Role="LoginAccount" EntitySet="LoginAccounts" />
+            <End Role="OptimizationTask" EntitySet="OptimizationTasks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LoginAccount">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OptimizationTasks" Relationship="TaskManagerModel.FK_OptimizationTasks_LoginAccounts" FromRole="LoginAccount" ToRole="OptimizationTask" />
+        </EntityType>
+        <EntityType Name="OptimizationTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IssuedBy" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IssuedOn" Type="DateTime" Precision="3" />
+          <Property Name="AllottedOn" Type="DateTime" Precision="3" />
+          <Property Name="CompletedOn" Type="DateTime" Precision="3" />
+          <Property Name="DoneBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InputValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OutputValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Logs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaskStaus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoginAccount" Relationship="TaskManagerModel.FK_OptimizationTasks_LoginAccounts" FromRole="OptimizationTask" ToRole="LoginAccount" />
+        </EntityType>
+        <Association Name="FK_OptimizationTasks_LoginAccounts">
+          <End Type="TaskManagerModel.LoginAccount" Role="LoginAccount" Multiplicity="1" />
+          <End Type="TaskManagerModel.OptimizationTask" Role="OptimizationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginAccount">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="OptimizationTask">
+              <PropertyRef Name="IssuedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaskManagerModelStoreContainer" CdmEntityContainer="TaskManagerEntities" >
+          <EntitySetMapping Name="LoginAccounts">
+            <EntityTypeMapping TypeName="TaskManagerModel.LoginAccount">
+              <MappingFragment StoreEntitySet="LoginAccounts">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OptimizationTasks">
+            <EntityTypeMapping TypeName="TaskManagerModel.OptimizationTask">
+              <MappingFragment StoreEntitySet="OptimizationTasks">
+                <ScalarProperty Name="TaskStaus" ColumnName="TaskStaus" />
+                <ScalarProperty Name="Logs" ColumnName="Logs" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ReferenceValues" ColumnName="ReferenceValues" />
+                <ScalarProperty Name="OutputValues" ColumnName="OutputValues" />
+                <ScalarProperty Name="InputValues" ColumnName="InputValues" />
+                <ScalarProperty Name="DoneBy" ColumnName="DoneBy" />
+                <ScalarProperty Name="CompletedOn" ColumnName="CompletedOn" />
+                <ScalarProperty Name="AllottedOn" ColumnName="AllottedOn" />
+                <ScalarProperty Name="IssuedOn" ColumnName="IssuedOn" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="TaskType" ColumnName="TaskType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

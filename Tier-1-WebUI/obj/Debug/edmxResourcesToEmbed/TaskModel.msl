@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TaskManagerModelStoreContainer" CdmEntityContainer="TaskManagerEntities">
+    <EntitySetMapping Name="LoginAccounts">
+      <EntityTypeMapping TypeName="TaskManagerModel.LoginAccount">
+        <MappingFragment StoreEntitySet="LoginAccounts">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OptimizationTasks">
+      <EntityTypeMapping TypeName="TaskManagerModel.OptimizationTask">
+        <MappingFragment StoreEntitySet="OptimizationTasks">
+          <ScalarProperty Name="TaskStaus" ColumnName="TaskStaus" />
+          <ScalarProperty Name="Logs" ColumnName="Logs" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReferenceValues" ColumnName="ReferenceValues" />
+          <ScalarProperty Name="OutputValues" ColumnName="OutputValues" />
+          <ScalarProperty Name="InputValues" ColumnName="InputValues" />
+          <ScalarProperty Name="DoneBy" ColumnName="DoneBy" />
+          <ScalarProperty Name="CompletedOn" ColumnName="CompletedOn" />
+          <ScalarProperty Name="AllottedOn" ColumnName="AllottedOn" />
+          <ScalarProperty Name="IssuedOn" ColumnName="IssuedOn" />
+          <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+          <ScalarProperty Name="TaskType" ColumnName="TaskType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaskManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TaskManagerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LoginAccounts" EntityType="TaskManagerModel.LoginAccount" />
+    <EntitySet Name="OptimizationTasks" EntityType="TaskManagerModel.OptimizationTask" />
+    <AssociationSet Name="FK_OptimizationTasks_LoginAccounts" Association="TaskManagerModel.FK_OptimizationTasks_LoginAccounts">
+      <End Role="LoginAccount" EntitySet="LoginAccounts" />
+      <End Role="OptimizationTask" EntitySet="OptimizationTasks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LoginAccount">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OptimizationTasks" Relationship="TaskManagerModel.FK_OptimizationTasks_LoginAccounts" FromRole="LoginAccount" ToRole="OptimizationTask" />
+  </EntityType>
+  <EntityType Name="OptimizationTask">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaskType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedBy" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedOn" Type="DateTime" Precision="3" />
+    <Property Name="AllottedOn" Type="DateTime" Precision="3" />
+    <Property Name="CompletedOn" Type="DateTime" Precision="3" />
+    <Property Name="DoneBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OutputValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Logs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaskStaus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoginAccount" Relationship="TaskManagerModel.FK_OptimizationTasks_LoginAccounts" FromRole="OptimizationTask" ToRole="LoginAccount" />
+  </EntityType>
+  <Association Name="FK_OptimizationTasks_LoginAccounts">
+    <End Type="TaskManagerModel.LoginAccount" Role="LoginAccount" Multiplicity="1" />
+    <End Type="TaskManagerModel.OptimizationTask" Role="OptimizationTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoginAccount">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="OptimizationTask">
+        <PropertyRef Name="IssuedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

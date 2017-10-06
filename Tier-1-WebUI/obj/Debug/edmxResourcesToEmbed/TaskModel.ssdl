@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaskManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LoginAccounts">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserRole" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OptimizationTasks">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TaskType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IssuedBy" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IssuedOn" Type="datetime" />
+    <Property Name="AllottedOn" Type="datetime" />
+    <Property Name="CompletedOn" Type="datetime" />
+    <Property Name="DoneBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="InputValues" Type="xml" />
+    <Property Name="OutputValues" Type="xml" />
+    <Property Name="ReferenceValues" Type="xml" />
+    <Property Name="Notes" Type="xml" />
+    <Property Name="Logs" Type="xml" />
+    <Property Name="TaskStaus" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_OptimizationTasks_LoginAccounts">
+    <End Role="LoginAccounts" Type="Self.LoginAccounts" Multiplicity="1" />
+    <End Role="OptimizationTasks" Type="Self.OptimizationTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoginAccounts">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="OptimizationTasks">
+        <PropertyRef Name="IssuedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TaskManagerModelStoreContainer">
+    <EntitySet Name="LoginAccounts" EntityType="Self.LoginAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OptimizationTasks" EntityType="Self.OptimizationTasks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OptimizationTasks_LoginAccounts" Association="Self.FK_OptimizationTasks_LoginAccounts">
+      <End Role="LoginAccounts" EntitySet="LoginAccounts" />
+      <End Role="OptimizationTasks" EntitySet="OptimizationTasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

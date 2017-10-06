@@ -1,0 +1,15 @@
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\Tier-3-OptimizationServer.exe.config
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\Tier-3-OptimizationServer.exe
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\Tier-3-OptimizationServer.pdb
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier_3_OptimizationServer.Form1.resources
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier_3_OptimizationServer.Properties.Resources.resources
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.csproj.GenerateResource.Cache
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.exe
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.pdb
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.csprojResolveAssemblyReference.cache
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\DataDefinitions.dll
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\GAMS.net4.dll
+D:\Live\Projects\ETC\CutStock\Tier-3-OptimizationServer\bin\Debug\DataDefinitions.pdb
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-OptimizationServer\bin\Debug\Tier-3-OptimizationServer.exe.config
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.exe
+D:\Live\Projects\ETC\Gams-MuliTierPOC\Tier-3-OptimizationServer\obj\Debug\Tier-3-OptimizationServer.pdb
